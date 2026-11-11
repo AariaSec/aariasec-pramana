@@ -151,11 +151,13 @@ because a benchmark that only embarrasses other people is marketing.
 
 *Re-score, 2026-10-22:* the entry moved from 0.9505 (3.0.0) to 0.9591 (3.1.0). Three rules now fire only against the agent's own baseline, which halved the false-positive rate (4.62% to 2.31%); recall on one attack class fell from 12/13 to 11/13 because v3 baselines carry no `tool_diversity`. It is a fix, not a re-tune against the holdout, and we keep the earlier figure here instead of overwriting it.
 
-**One caveat we'd rather state than have found:** the fleet-level and persistence
-components of our own entry are not yet wired into live alerting. A running AariaSec
-install fires on a single anomalous event, so it is noisier than the false-positive
-rate above and does not yet catch the coordinated multi-agent class. That row measures
-the codebase, not a deployment.
+**What this row does and does not measure:** both components of our own entry run in
+live alerting, not only in this benchmark. The 2+-event persistence gate sits in the
+ingest path, and the fleet-drift detector runs as a periodic sweep off the hot path
+(both wired 2026-07-30). Deterministic CRITICAL rules still alert on the first
+observation. Two honest limits: one rule cannot fire on this corpus because v3 baselines
+carry no `tool_diversity` (live installs learn it), and v3 itself has the limitation
+noted on the leaderboard.
 
 ## Reproducibility
 
