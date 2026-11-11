@@ -139,15 +139,17 @@ We publish our own results, including where we lose. All on the v3 held-out spli
 
 | Detector | balanced | recall | FP |
 |---|---|---|---|
-| AariaSec 3.0.0 | **0.9505** | 0.9471 | 0.0462 |
+| AariaSec 3.1.0 | **0.9591** (was 0.9505 as 3.0.0) | 0.9412 | 0.0231 |
 | `drift-tail` — longitudinal baseline, ~40 lines | 0.9115 | 0.9846 | 0.1615 |
 | `sigma-3` — per-event, baseline-relative | 0.7968 | 0.6704 | 0.0769 |
 | `naive-egress` — two field checks | 0.6577 | 0.7769 | 0.4615 |
 | `always-attack` / `always-benign` | 0.5000 | 1.0 / 0.0 | 1.0 / 0.0 |
 
-A forty-line longitudinal baseline is within four points of us. Our weakest class sits
+A forty-line longitudinal baseline is within five points of us. Our weakest class sits
 at 0.714 recall and the coordinated multi-agent class at 0.800 — both published,
 because a benchmark that only embarrasses other people is marketing.
+
+*Re-score, 2026-10-22:* the entry moved from 0.9505 (3.0.0) to 0.9591 (3.1.0). Three rules now fire only against the agent's own baseline, which halved the false-positive rate (4.62% to 2.31%); recall on one attack class fell from 12/13 to 11/13 because v3 baselines carry no `tool_diversity`. It is a fix, not a re-tune against the holdout, and we keep the earlier figure here instead of overwriting it.
 
 **One caveat we'd rather state than have found:** the fleet-level and persistence
 components of our own entry are not yet wired into live alerting. A running AariaSec
