@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en" data-pramana-shell data-theme="light"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PRAMANA v4 — agent-compromise detection benchmark</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23FF9F0A'/%3E%3Cstop offset='100%25' stop-color='%23FF6B00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 2L4 8v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16V8L16 2z' fill='url(%23g)'/%3E%3Cpath d='M16 6L8 10v6c0 5.2 3.4 10 8 11.6 4.6-1.6 8-6.4 8-11.6v-6L16 6z' fill='%231a1918'/%3E%3Cpath d='M14 15.5l-2-2-1.4 1.4L14 18.3l5.4-5.4L18 11.5l-4 4z' fill='%23FF9F0A'/%3E%3C/svg%3E">
@@ -119,23 +119,44 @@ tr.top td:first-child{box-shadow:inset 3px 0 0 var(--acc)}
 .bar>i.mid{background:var(--warn)}.bar>i.low{background:var(--bad)}
 .bar{height:8px;border-radius:4px}
 h2{font-size:22px;letter-spacing:-.015em}
-</style></head><body>
-<header class="site"><div class="in">
-  <a class="logo" href="https://aariasec.com/"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF9F0A"/><stop offset="100%" stop-color="#FF6B00"/></linearGradient></defs><path d="M16 2L4 8v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16V8L16 2z" fill="url(#sg)"/><path d="M16 6L8 10v6c0 5.2 3.4 10 8 11.6 4.6-1.6 8-6.4 8-11.6v-6L16 6z" fill="#1a1918"/><path d="M14 15.5l-2-2-1.4 1.4L14 18.3l5.4-5.4L18 11.5l-4 4z" fill="#FF9F0A"/></svg><span>AariaSec <em>/ PRAMANA</em></span></a>
-  <nav class="links">
-    <a href="https://aariasec.com/">Home</a>
-    <a href="https://aariasec.com/drift/">Drift</a>
-    <a href="https://aariasec.com/field-notes/">Field Notes</a>
-    <a class="cta" href="https://aariasec.com/">Download</a>
+</style><link rel="stylesheet" href="https://aariasec.com/shell.css">
+<link rel="stylesheet" href="https://aariasec.com/theme.css">
+<link rel="stylesheet" href="https://aariasec.com/motion.css">
+<style>
+html[data-theme="light"]{--fg:#0d1520;--mut:#4a5768;--rule:rgba(10,20,35,.12);--card:#ffffff;--acc:#b85f00;--code:rgba(10,20,35,.05)}
+html:not([data-theme="light"]){--bg:#06080c;--fg:#f5f8fd;--mut:#aeb8c8;--rule:rgba(255,255,255,.12);--card:#0a0d14;
+  --acc:#FF9F0A;--good:#3ddc97;--warn:#FFC24D;--bad:#ff6b6b;--code:rgba(255,255,255,.07)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+h1{letter-spacing:-.03em;font-weight:780}
+/* the board has its own .bar (a score meter); keep it off the header's bar */
+header[data-shell] .bar{height:auto;min-width:0;overflow:visible;background:none;border-radius:0}
+</style>
+<script src="https://aariasec.com/theme.js"></script>
+</head><body data-m-doc>
+<header id="hdr" data-shell><div class="bar">
+  <a class="brand" href="https://aariasec.com/" aria-label="AariaSec — home"><span class="logo"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><linearGradient id="asgpram0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF9F0A"/><stop offset="100%" stop-color="#FF6B00"/></linearGradient><linearGradient id="astpram0" x1="0" y1="0" x2=".34" y2=".94"><stop offset="0%" stop-color="#26221C"/><stop offset="100%" stop-color="#0D0C0A"/></linearGradient><radialGradient id="aswindexh0" cx="50%" cy="42%" r="62%"><stop offset="0%" stop-color="#FF9F0A" stop-opacity=".55"/><stop offset="100%" stop-color="#FF9F0A" stop-opacity="0"/></radialGradient></defs><rect width="32" height="32" rx="7" fill="url(#astpram0)"/><rect width="32" height="32" rx="7" fill="url(#aswindexh0)"/><g transform="translate(2.56,2.56) scale(0.84)"><path d="M16 2L4 8v8c0 7.2 5.1 13.9 12 16 6.9-2.1 12-8.8 12-16V8L16 2z" fill="url(#asgpram0)"/><path d="M16 6L8 10v6c0 5.2 3.4 10 8 11.6 4.6-1.6 8-6.4 8-11.6v-6L16 6z" fill="#1a1918"/><path d="M14 15.5l-2-2-1.4 1.4L14 18.3l5.4-5.4L18 11.5l-4 4z" fill="#FF9F0A"/></g></svg></span><span>AariaSec</span></a>
+  <button id="navToggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navList"><span></span><span></span><span></span></button>
+  <nav class="nav" id="navList">
+    <a class="lnk" href="https://aariasec.com/platform/">Platform</a>
+    <a class="lnk" href="https://aariasec.com/coverage/">Coverage</a>
+    <a class="lnk" href="https://aariasec.com/security-review/">Security review</a>
+    <a class="lnk" href="https://aariasec.com/drift/">Research</a>
+    <a class="lnk" href="https://aariasec.com/get-started/">Tutorial</a>
+    <a class="lnk" href="https://aariasec.com/docs/">Docs</a>
+    <a class="lnk" href="https://aariasec.com/#pricing" style="font-weight:700;color:var(--accent)">Pricing</a>
+    <a class="btn btn-ghost" id="navdemo" href="https://calendar.app.google/HkZ1t3GvdUAnS32PA" target="_blank" rel="noopener">Book a demo</a>
+    <a class="btn btn-primary" id="navdl" href="https://aariasec.com/#download">Download</a>
+    <button id="themeBtn" class="themebtn" type="button" aria-label="Switch between light and dark" title="Light / dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13.2A8.2 8.2 0 1 1 10.8 4a6.6 6.6 0 0 0 9.2 9.2z"/></svg></button>
   </nav>
 </div></header>
+<nav class="subnav" aria-label="PRAMANA benchmark"><span class="sn-label">PRAMANA</span><a href="/" class="on">Leaderboard</a><a href="/withdrawn/">Withdrawn seasons</a><a href="https://github.com/AariaSec/aariasec-pramana">Corpus and submissions</a></nav>
 <div class="wrap">
 
 <div class="brand">
   <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
   <div>
     <div class="kick">Open benchmark · season v4</div>
-    <h1>PRAMANA</h1>
+    <h1 data-m-title>PRAMANA</h1>
   </div>
 </div>
 <p class="lede">The agent-compromise <b>detection</b> benchmark. Given behavioural
@@ -143,13 +164,13 @@ telemetry and nothing else, can a monitoring system tell a compromised AI agent
 from a healthy one?</p>
 
 <div class="tiles">
-  <div class="tile"><div class="k">Season</div><div class="v">v4</div>
+  <div class="tile" data-m="0"><div class="k">Season</div><div class="v">v4</div>
     <div class="n">live, labels withheld</div></div>
-  <div class="tile"><div class="k">Detectors ranked</div><div class="v">6</div>
+  <div class="tile" data-m="1"><div class="k">Detectors ranked</div><div class="v">6</div>
     <div class="n">same holdout, same scorer</div></div>
-  <div class="tile"><div class="k">Withdrawn seasons</div><div class="v">3</div>
+  <div class="tile" data-m="2"><div class="k">Withdrawn seasons</div><div class="v">3</div>
     <div class="n">v1, v2, v3 - scores void</div></div>
-  <div class="tile"><div class="k">Trace content</div><div class="v">0 bytes</div>
+  <div class="tile" data-m="3"><div class="k">Trace content</div><div class="v">0 bytes</div>
     <div class="n">hashes, lengths, tool names</div></div>
 </div>
 
@@ -224,4 +245,5 @@ mechanism. Season v4 is reproducible forever from a fixed seed
 and will not be re-cut.
 </div>
 
-</div></body></html>
+</div><script src="https://aariasec.com/motion.js" defer></script>
+</body></html>
