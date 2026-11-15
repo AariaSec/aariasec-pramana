@@ -1,0 +1,7 @@
+{
+  "season": "v4",
+  "sha256": {
+    "SCHEMA.md": "0a152eb69021e0dfaa25b902cf65cdd00e5fb1356a10eabc27366a8eb114c819",
+    "holdout.jsonl": "4d39157669efe55957db9efa4a2485d072b0913bf67c4f0b0de889754cba9127"
+  }
+}
